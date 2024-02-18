@@ -15,7 +15,7 @@ func Resize3(src *gif.GIF, width, height int) *gif.GIF {
 	srcBounds := image.Rect(0, 0, srcWidth, srcHeight)
 	dstBounds := image.Rect(0, 0, width, height)
 
-	tempCanvas := image.NewRGBA(srcBounds)
+	tempCanvas := image.NewNRGBA(srcBounds)
 
 	dst := &gif.GIF{
 		Image:     make([]*image.Paletted, 0, len(src.Image)),
