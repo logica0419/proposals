@@ -1,4 +1,4 @@
-# Resizing Animated GIFs without CGO nor Third-Party Libraries
+# Resizing Animated GIFs Without CGO or Third-Party Libraries
 
 ## Description
 
@@ -65,3 +65,9 @@ Learn how to implement GIF resizing with pure Go step by step and the cautionary
 ## Bio
 
 Takuto is an undergraduate student at Chiba Institute of Technology, Japan. He drives himself to study computer science, dreaming of becoming a cloud platform developer. His core domain includes web development (backend) and cloud infrastructure. He had been a backend core maintainer of traQ, a communication web service for the university tech club. While in the position, he achieved several significant improvements in performance.
+
+## Additional Notes
+
+I'm a university student who has been willing to visit GopherCon for three years, but I couldn't because of financial problems. I applied to the scholarship program, but I couldn't get after all.  
+I hope this proposal leads me to the first time GopherCon!  
+Thank you,
