@@ -1,5 +1,9 @@
 # Resizing Animated GIFs Without CGO or Third-Party Libraries
 
+## Status
+
+### 😞 Declined
+
 ## Description
 
 GIF animation icons enable users to express themselves much better. Resizing animated GIFs is necessary to support them.  
