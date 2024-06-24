@@ -26,7 +26,7 @@ Learn how to implement GIF resizing with pure Go step by step and the cautionary
 - (1) Basic resizing implementation (5 min)
   - Image resizing with the `golang.org/x/image/draw` package
   - Basic structure of `*(image/gif).GIF` struct
-  - Implementation: <https://github.com/logica0419/proposals/blob/main/GopherCon2024/step1.go>
+  - Implementation: <https://github.com/logica0419/proposals/blob/main/2024/GopherCon/step1.go>
 - (2) Handling frame optimization (5 min)
   - What is frame optimization?
   - How frame optimization affects the`*(image/gif).GIF` struct
@@ -35,12 +35,12 @@ Learn how to implement GIF resizing with pure Go step by step and the cautionary
   - Calculating frame size for each frame
     - Calculate the resize ratio for width & height
     - Calculate the resized frame size for each frame
-  - Implementation: <https://github.com/logica0419/proposals/blob/main/GopherCon2024/step2.go>
+  - Implementation: <https://github.com/logica0419/proposals/blob/main/2024/GopherCon/step2.go>
 - (3) Handling black glitchy noise (10 min)
   - Simple explanation of image resizing algorithm and its implementation in Go
   - Problem of transparent pixel handling
   - Frame stacking before resizing
-  - Implementation: <https://github.com/logica0419/proposals/blob/main/GopherCon2024/step3.go>
+  - Implementation: <https://github.com/logica0419/proposals/blob/main/2024/GopherCon/step3.go>
 - (4) Handling frame disposal (10 min)
   - GIF frame disposal specification
     - None: keep stacked frame to the next frame
@@ -48,7 +48,7 @@ Learn how to implement GIF resizing with pure Go step by step and the cautionary
     - Previous: put back canvas to the previous condition
   - Handling frame disposal in Go
     - After-resize processing for the temporary canvas
-  - Implementation: <https://github.com/logica0419/proposals/blob/main/GopherCon2024/step4.go>
+  - Implementation: <https://github.com/logica0419/proposals/blob/main/2024/GopherCon/step4.go>
 - Conclusion (10 min)
   - Summary of the implementation
   - A little explanation of parallelization of resizing
