@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❓ On Evaluation
+### 😞 Declined
 
 ## トーク概要
 
