@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❓ On Evaluation
+### 🎉 Accepted
 
 ## キーワード
 
