@@ -34,6 +34,10 @@ Ultimately, Nekko Cloud Gen.2 showcases how to build a lightweight cloud platfor
 
 Kubernetes, Knative, KubeVirt
 
+## Open source projects
+
+Proxmox, Netmaker
+
 ## Bio
 
 Takuto is an undergraduate student at Chiba Institute of Technology, Japan, pursuing a degree in computer science to become a cloud platform developer. His expertise lies in web development (backend) and cloud infrastructure.  
