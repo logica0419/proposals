@@ -6,13 +6,12 @@
 
 ## Description
 
-Nekko Cloud is an experimental small-scale private cloud developed by a CS student community, connecting the home labs of its members.
+Nekko Cloud is an experimental small-scale private cloud developed within a CS student community. It consists of the members' home labs connected with a VPN.
 
 Currently, the platform combines Proxmox for IaaS with a Kubernetes cluster for PaaS.  
 However, with containerized applications as its primary use case, dual virtualization creates inefficiencies, while challenges like fragmented authentication and complex observability limit usability.
 
-To address these issues, we propose "dependency inversion," shifting from traditional "PaaS on IaaS" to "IaaS on PaaS" using ecosystem tools like KubeVirt.  
-By making bare-metal Kubernetes the backbone of all cloud functionalities, we simplify the architecture, eliminate redundancy, and optimize for small-scale private cloud needs.  
+To address these issues, we propose "dependency inversion," shifting from traditional "PaaS on IaaS" to "IaaS on PaaS" using ecosystem tools like KubeVirt. By establishing bare-metal Kubernetes as the backbone of all cloud functionalities, we simplify the architecture, eliminate redundancy, and optimize for small-scale private cloud needs.  
 This ongoing project is called "Nekko Cloud Gen.2."
 
 Discover how Nekko Cloud Gen.2 with "dependency inversion" redefines small-scale cloud design, solving inefficiencies and enhancing usability!
