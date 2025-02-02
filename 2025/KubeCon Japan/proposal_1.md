@@ -32,9 +32,13 @@ The session will also highlight opportunities for contribution to Argo projects,
 Additionally, introducing Configuration Management Plugins (CMP) will show how Argo CD can be extended to integrate third-party tools, enriching the ecosystem and enabling more flexible deployments.  
 This session encourages active participation in improving config management, benefiting the Argo and Kubernetes communities.
 
+## CNCF-hosted software
+
+Kubernetes, Argo CD, Helm
+
 ## Open source projects
 
-Kubernetes, Argo CD, Helm, Helmfile
+Helmfile
 
 ## Bio
 
