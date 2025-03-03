@@ -22,8 +22,10 @@ All Attendees
    - Memory management is important for performance
      - Example case: one memory allocation change -> 57% reduction in CPU usage and 99% lower memory consumption
    - Sessions about memory management are difficult
-     - Contain large technical details of logic and (how)
-     - Lack of structured abstract interpretation of processing and its needs ("what" and "why")
+     - Contain large technical details of logic and implementation techniques ("how")
+     - Lack of structured abstract interpretation of processing and understanding of needs ("what" and "why")
+   - To learn advanced Go memory concepts, we need to understand the basics of a broad range of functionalities
+     - We can acquire this only by grasping the "what" and "why" of each functionality
      - Let's focus on the "what" and "why", not the "how": the most efficient path from 0 to hero
 2. What memory is: Ancient memory management (1min)
    - Memory = temporary data storage for the process
@@ -109,6 +111,7 @@ All Attendees
    - This session is the start
    - Deep dive into each functionality with existing sessions!
 9. Recommendation of the past sessions to see next (if I have extra time)
+   - With the basics of a broad range of functionalities in this session as a strong foundation, you can move on to the next step!
    - Heap escape condition and analysis: "Escape Analysis in Go: Understanding and Optimizing Memory Allocation" at Go Conference 2023 Online
    - GC logics: "Garbage Collection Semantics" at GopherCon SG 2019
    - Memory optimizations with pprof: "Memory Management in Go: The good, the bad and the ugly" at GopherCon UK 2023
