@@ -12,13 +12,9 @@ Yet, past conference sessions are often difficult for learners because they dive
 Heap, stack, and garbage collection—memory management concepts have evolved to solve data management challenges in programming languages. By exploring their motivations, you'll gain a deeper understanding of memory management and the confidence to engage in Go memory management discussions.  
 Let's unravel the chronicle of memory management and build a strong foundation for mastering advanced Go memory concepts.
 
-## Target Audience
+Outline:
 
-All Attendees
-
-## Outline
-
-1. Introduction (3min)
+1. Introduction (5min)
    - Memory management is important for performance
      - Example case: one memory allocation change -> 57% reduction in CPU usage and 99% lower memory consumption
    - Sessions about memory management are difficult
@@ -27,10 +23,15 @@ All Attendees
    - To learn advanced Go memory concepts, we need to understand the basics of a broad range of functionalities
      - We can acquire this only by grasping the "what" and "why" of each functionality
      - Let's focus on the "what" and "why", not the "how": the most efficient path from 0 to hero
-2. What memory is: Ancient memory management (1min)
+2. What memory is and memory management on OS (2min)
    - Memory = temporary data storage for the process
-   - Direct data insertion to memory (data management of assembly)
-3. Era of variables: the stack and the heap (4min)
+   - Virtual memory
+     - One memory space for one process
+3. Ancient memory management (3min)
+   - Memory address
+   - Direct data insertion to memory
+     - (Example) Assembly
+4. Era of variables: the stack and the heap (10min)
    - (Pain) Programmers need to know all the addresses
    - High-level programming language arose
      - Variable = abstraction of data
@@ -43,13 +44,13 @@ All Attendees
      - For big / unknown-sized data
      - For data which is used across the functions
      - (Example) malloc & free function in C
-4. Automatic heap management: garbage collection (2min)
+5. Automatic heap management: garbage collection (5min)
    - (Pain) Programmers need to delete data in the heap when they are no longer in use
      - Risk of memory leak & OOM kill
    - Garbage collection (GC)
      - Detection of unused data in the heap
      - Deletion of them
-5. Heap escaping in Go (5min)
+6. Heap escaping in Go (10min)
    - (Pain) Placing many data in the heap = high GC cost
      - (Example) Putting all struct & array in heap -> over half of the variables are GC target
    - Heap escaping
@@ -63,14 +64,14 @@ All Attendees
      - Package that no data escapes to the heap in its functions
      - Efficient, basically increases performance
      - Implementation is relatively complex, so difficult to read internal code
-6. Flexible stack with stack copying (4min)
+7. Flexible stack with stack copying (7min)
    - (Pain) The stack sometimes has a limit = stack overflow happens
    - Preparing a huge stack may be good…
    - (Pain) Always having a huge stack = a small amount of heap, which is also inconvenient
    - Flexible-sized stack = efficient memory usage
      - Segmented stacks (old implementation)
      - Stack copying (current implementation)
-7. Explanation of the example case in the introduction (3min)
+8. Explanation of the example case in the introduction (8min)
    - cf. <https://developers.cyberagent.co.jp/blog/archives/54653/> (written in Japanese)
    - Filtering function makes one slice in the heap every time it is called
      - This escaped variable was the bottleneck
@@ -107,16 +108,20 @@ All Attendees
      - Shows how one allocation in a common function affects the performance
    - 57% reduction in CPU usage
      - The reduction of allocation & GC CPU usage combined
-8. Conclusion (2min)
+9. Conclusion (2min)
    - This session is the start
    - Deep dive into each functionality with existing sessions!
-9. Recommendation of the past sessions to see next (if I have extra time)
-   - With the basics of a broad range of functionalities in this session as a strong foundation, you can move on to the next step!
-   - Heap escape condition and analysis: "Escape Analysis in Go: Understanding and Optimizing Memory Allocation" at Go Conference 2023 Online
-   - GC logics: "Garbage Collection Semantics" at GopherCon SG 2019
-   - Memory optimizations with pprof: "Memory Management in Go: The good, the bad and the ugly" at GopherCon UK 2023
-   - (Advanced) Allocation of heap/stack (how Go allocation works with OS): "Understanding Go's Memory Allocator" at GopherCon UK 2018
-   - Memory design over concurrency (memory model): "The Go Memory Model" at GoSF Meetup
+10. Recommendation of the past sessions to see next (if I have extra time)
+    - With the basics of a broad range of functionalities in this session as a strong foundation, you can move on to the next step!
+    - Heap escape condition and analysis: "Escape Analysis in Go: Understanding and Optimizing Memory Allocation" at Go Conference 2023 Online
+    - GC logics: "Garbage Collection Semantics" at GopherCon SG 2019
+    - Memory optimizations with pprof: "Memory Management in Go: The good, the bad and the ugly" at GopherCon UK 2023
+    - (Advanced) Allocation of heap/stack (how Go allocation works with OS): "Understanding Go's Memory Allocator" at GopherCon UK 2018
+    - Memory design over concurrency (memory model): "The Go Memory Model" at GoSF Meetup
+
+## What type of submission is this?
+
+60 minute Talk
 
 ## Speaker Biography
 
