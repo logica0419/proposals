@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❓ On Evaluation
+### 😞 Declined
 
 ## 講演内容 - Abstract
 
