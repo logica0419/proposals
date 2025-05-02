@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❓ On Evaluation
+### 🎉 Accepted
 
 ## 発表概要
 
