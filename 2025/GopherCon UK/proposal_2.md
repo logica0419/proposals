@@ -6,21 +6,10 @@
 
 ## Description
 
-Golangci-lint, the most popular Go static analysis tool, recently introduced a major upgrade.
-This talk explores the motivation behind the changes, the designs that shaped the transition, and how the ecosystem adapts.
-
-Creating the first major version with 7 years of history is complex and requires much time.
-As golangci-lint is widely used, we needed to support the change as much as possible to ease the migration's user experience and avoid the "endless wishlist" trap.
-At the same time, we needed to add value with new features.
-All those elements were challenges to create this new release and exposed some interesting thoughts about handling those from the perspective of a FOSS maintainer.
-
-Golangci-lint v2 also involves adaptations in the ecosystem tools.
-We'll share the story of migrating the VS Code integration, highlighting concrete issues, why they mattered, and how the community resolved them.
-Through this story of open-source collaboration, you'll gain practical insight into migrating your projects to golangci-lint v2.
-
+Golangci-lint, the most popular Go static analysis tool, recently introduced a major upgrade. This talk explores the motivation behind the changes, the designs that shaped the transition, and how the ecosystem adapts.  
+Creating the first major version with 7 years of history is complex and requires much time. As golangci-lint is widely used, we needed to facilitate the adoption of the changes as much as possible to ease the migration's user experience and avoid the "endless wishlist" trap. At the same time, we needed to add value with new features. All those elements were challenges to create this new release and exposed some interesting thoughts about handling those from the perspective of a FOSS maintainer.  
+Golangci-lint v2 also involves adaptations in the ecosystem tools. We'll share the story of migrating the VS Code integration, highlighting concrete issues, why they mattered, and how the community resolved them. Through this story of open-source collaboration, you'll gain practical insight into migrating your projects to golangci-lint v2.  
 Join us for a deep dive into this milestone upgrade through the collaborative story in the open-source world!
-
----
 
 Outline:
 
