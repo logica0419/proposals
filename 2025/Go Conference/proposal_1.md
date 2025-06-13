@@ -1,0 +1,143 @@
+# 歴史から学ぶ、Goのメモリ管理基礎
+
+## Status
+
+### ❓ On Evaluation
+
+## Description
+
+「Goのメモリ管理に関するセッション、難しすぎてわからなぁぁぁい‼︎」  
+みなさん！メモリ管理への理解を深めるために、その発展の歴史を学んでみませんか？  
+たった一つのメモリ確保処理を見直しただけでCPU使用率を57%、メモリ使用量を99%も削減できた例があるほど、メモリ管理の知識はアプリケーションのパフォーマンス向上に直結します。  
+しかし過去のセッションの多くは、ヒープエスケープやコンパイラ内部のメモリ構造といった複雑な機能が「どのように(How)」動作するのかに焦点を当てており、初学者向けとは言えません。本来「How」を理解するためには、「なぜ(Why)」その機能が必要とされ、「何を(What)」実現するかの理解が不可欠です。そうした土台がないまま「How」の議論を追うのは困難でしょう。  
+ヒープ、スタック、ガーベジコレクションのような仕組みは、プログラミング言語におけるデータ管理をわかりやすくするために進化してきたものです。動機を知ることでこれらの仕組みをより深く理解し、Goのメモリ管理を語れるエンジニアになりましょう！  
+本セッションでは、メモリ管理の進化の軌跡を紐解きつつ、発展的なGoのメモリ管理の知識を修得するにあたって強固な土台となる知識を提供します。
+
+## Session Type
+
+Long Session(40 min)
+
+## Session Level
+
+all
+
+## 備考 / Additional Notes
+
+以下に、予定しているトークのアウトラインを示します。
+
+1. はじめに (5分)
+   - 自己紹介
+   - メモリ管理はパフォーマンス向上のため非常に重要
+     - たった1か所のメモリ確保処理の見直しで、CPU使用率が57%、メモリ使用量が99%も削減された事例が存在
+   - メモリ管理に関するセッションは難しい
+     - 実装の詳細やロジック (How) に関する技術的な内容が多い
+     - 処理の抽象的な解釈や、必要性に対する理解 (What, Why) が不足している
+   - Goの高度なメモリ管理を学ぶには、幅広い機能の基礎知識が必要
+     - 各機能が「何を」して「なぜ」あるのかを理解することで初めて習得できる
+     - 「How」の前に「What」と「Why」に焦点を当てるのが、修得の最短ルート
+2. メモリとは何か / 古のメモリ管理 (2分)
+   - メモリ＝プロセスの一時的なデータ保存領域
+   - メモリへの直接的なデータ挿入 (アセンブリのデータ管理)
+3. 変数の誕生 / スタックとヒープ (6分)
+   - 【課題】人間が全てのメモリアドレスを把握する必要がある
+   - 高級プログラミング言語の登場
+     - 変数＝データの抽象化
+     - 人間はアドレスを気にしなくてよくなるが、言語側が代わりにアドレスを管理する必要がある
+   - スタックの発明
+     - 関数呼び出しのネスト構造や変数スコープをメモリ空間上でうまく表現できる
+   - スタックの図解説明
+     - 【例】Goでの変数定義や関数呼び出し
+   - 直接的な挿入も可能にする、ヒープとポインタ
+     - 大きいデータ・サイズ不定のデータ
+     - 関数をまたいで利用されるデータ
+     - 【例】C言語のmalloc / free
+4. ヒープの自動管理 / ガーベジコレクション (2分)
+   - 【課題】ヒープ上の使い終わったデータは人間が削除する必要がある
+     - メモリリークやOOM Killのリスクが高まる
+   - ガーベジコレクション (GC)
+     - ヒープ上の未使用データを検出
+     - 未使用データを自動的に削除
+5. Goのヒープエスケープ (8分)
+   - 【課題】ヒープに大量のデータを置くとGCの負荷が高くなる
+     - 【例】構造体や配列をすべてヒープに置く→半分以上の変数がGC対象に
+   - ヒープエスケープの導入
+     - できるだけスタックにデータを置く
+     - 型で判断するのではなく、必要なものだけヒープへ「逃がす」
+   - エスケープ解析
+     - ヒープへ逃すか決まるのは、実行時ではなくビルドの段階
+     - どの変数がエスケープするか見るためのビルドオプションがある
+   - ゼロアロケーションライブラリ
+     - 関数内でヒープに置かれるデータを一切出さないパッケージ
+     - 非常に効率的で、基本的にパフォーマンスが向上する
+     - 実装はやや複雑で、コードリーディングが難しい
+6. スタックコピーによる、可変サイズスタック (6分)
+   -【課題】通常の言語ではスタックには上限が設けられ、スタックオーバーフローが起きる
+   - あらかじめ大きなスタックを確保しておくか…？
+   - 【課題】常に大きなスタックを持つと、ヒープが小さくなって不便
+   - 可変サイズのスタックにより、効率的なメモリ利用を実現
+     - セグメント化スタック (旧実装)
+     - スタックコピー (現行の実装)
+7. はじめに紹介した事例の解説 (5分)
+   - 参考: <https://developers.cyberagent.co.jp/blog/archives/54653/>
+   - フィルタリング関数が呼び出されるたびにヒープ上にスライスを1つ作成
+     - このヒープに置かれた変数がボトルネックになっていた
+
+    ```go
+    type targetList []any
+
+    func (list targetList) Filter(match func(any) bool) targetList {
+      filtered := make(targetList, 0, len(list)) // The bottleneck
+      for _, e := range list {
+        if match(e) {
+          filtered = append(filtered, e)
+        }
+      }
+      return filtered
+    }
+    ```
+
+   - 既存のスライスを利用することで、割り当てを無くす
+
+    ```go
+    type targetList []any
+
+    func (list targetList) Filter(match func(any) bool) targetList {
+      n := 0
+      for _, e := range list {
+        if match(e) {
+          list[n] = e
+          n++
+        }
+      }
+      list = list[:n]
+      return list
+    }
+    ```
+
+   - メモリ使用量99%削減
+     - たった1つのアロケーションがパフォーマンスに大きく影響することを示している
+   - CPU使用率57%削減
+     - アロケーションとGCコストの削減の合計
+8. メモリ管理と最近の新機能のつながり (3分)
+   - 超大雑把に紹介。こんな分野と繋がってるんだ！という興味を持ってほしい
+   - arena (1.20)
+     - Cライクな直接のヒープ管理を、より安全に
+   - weak (1.24)
+     - 参照先がガベージコレクションされる特殊なポインタ
+   - Green Tea GC (1.25)
+     - メモリアクセス待ちの少ない、より効率的なGC
+9. まとめ (2分)
+   - 今回のセッションはあくまで出発点
+   - 他のセッションや資料で、各機能を深堀りしてみよう！
+10. 次に見るべきおすすめの過去セッション紹介 (時間が余ったら)
+    - このセッションで得た基礎知識を土台に、次のステップに進もう！
+    - ヒープエスケープとエスケープ解析: "Escape Analysis in Go: Understanding and Optimizing Memory Allocation" - Go Conference 2023 Online
+    - GCの条件: "Go1.19から始めるGCのチューニング方法" - Go Conference 2023 Online
+    - pprofを使ったパフォーマンスチューニング: "Memory Management in Go: The good, the bad and the ugly" - GopherCon UK 2023
+    - 【発展】ヒープ・スタックの、OSレベルでの割り当て: "Goのメモリ管理" - Go Conference 2023 Online
+    - 並行処理に対するメモリ設計 (memory model): "よくわかるThe Go Memory Model - 行間を図解で埋め尽くす" - Go Conference 2023 Online
+
+## Speaker Biography
+
+Takuto is an undergraduate student at Chiba Institute of Technology in Japan. He pursues a degree in computer science to become a cloud platform developer. His expertise lies in web development (backend) and cloud infrastructure.  
+He organizes Gophers EX, a project to support the overseas expansion of the Japan Go community. With his experience as a speaker at an international conference, he provides practical methods to challenge conferences overseas.
