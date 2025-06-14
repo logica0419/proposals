@@ -139,5 +139,5 @@ all
 
 ## Speaker Biography
 
-Takuto is an undergraduate student at Chiba Institute of Technology in Japan. He pursues a degree in computer science to become a cloud platform developer. His expertise lies in web development (backend) and cloud infrastructure.  
-He organizes Gophers EX, a project to support the overseas expansion of the Japan Go community. With his experience as a speaker at an international conference, he provides practical methods to challenge conferences overseas.
+千葉工業大学 情報科学部 情報ネットワーク学科 学士4年。クラウドプラットフォームの開発に携わるソフトウェアエンジニアを目指し、日々研鑽を積んでいる。  
+日本Goコミュニティの海外進出を手助けするプロジェクト「Gophers EX」主催。海外カンファレンスでの英語登壇経験を活かし、人々が持つ海外への言語的・心理的な障壁を取り除くために日々奮闘中。
