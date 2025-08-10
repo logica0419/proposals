@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❓ On Evaluation
+### 😞 Declined
 
 ## ワークショップ概要 / Overview
 
