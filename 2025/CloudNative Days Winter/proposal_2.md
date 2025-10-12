@@ -2,7 +2,7 @@
 
 ## Status
 
-### ❔ In Evaluation
+### 🎉 Accepted
 
 ## 講演内容 - Abstract
 
