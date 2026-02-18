@@ -20,7 +20,7 @@ Networking
 
 ## トーク時間
 
-_40min (full session)
+40min (full session)
 
 ## プロフィール
 

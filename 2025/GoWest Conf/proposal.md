@@ -77,42 +77,43 @@ Here is the outline for the talk;
    - Filtering function makes one slice in the heap every time it is called
      - This escaped variable was the bottleneck
 
-    ```go
-    type targetList []any
+   ```go
+   type targetList []any
 
-    func (list targetList) Filter(match func(any) bool) targetList {
-      filtered := make(targetList, 0, len(list)) // The bottleneck
-      for _, e := range list {
-        if match(e) {
-          filtered = append(filtered, e)
-        }
-      }
-      return filtered
-    }
-    ```
+   func (list targetList) Filter(match func(any) bool) targetList {
+     filtered := make(targetList, 0, len(list)) // The bottleneck
+     for _, e := range list {
+       if match(e) {
+         filtered = append(filtered, e)
+       }
+     }
+     return filtered
+   }
+   ```
 
    - Deleting allocation by updating the existing slice
 
-    ```go
-    type targetList []any
+   ```go
+   type targetList []any
 
-    func (list targetList) Filter(match func(any) bool) targetList {
-      n := 0
-      for _, e := range list {
-        if match(e) {
-          list[n] = e
-          n++
-        }
-      }
-      list = list[:n]
-      return list
-    }
-    ```
+   func (list targetList) Filter(match func(any) bool) targetList {
+     n := 0
+     for _, e := range list {
+       if match(e) {
+         list[n] = e
+         n++
+       }
+     }
+     list = list[:n]
+     return list
+   }
+   ```
 
    - 99% lower memory consumption
      - Shows how one allocation in a common function affects the performance
    - 57% reduction in CPU usage
      - The reduction of allocation & GC CPU usage combined
+
 8. Conclusion (2min)
    - This session is the start
    - Deep dive into each functionality with existing sessions!

@@ -22,7 +22,7 @@ Advanced
 
 ## Benefits to the ecosystem
 
-This presentation offers a paradigm shift in cloud architecture, specifically for small-scale private clouds.  
+This presentation offers a paradigm shift in cloud architecture, specifically for small-scale private clouds.
 
 While some previous experiments have explored placing IaaS on Kubernetes, they are typically executed on large platforms, so the benefits are relatively small. In contrast, Nekko Cloud Gen.2 demonstrates how "dependency inversion" can streamline small-scale cloud design by eliminating inefficiencies and redundancy.  
 This approach is valuable for the environment with limited resources where traditional cloud models are inefficient or unnecessarily complex. Focusing on small-scale private clouds, this project introduces a scalable, resource-efficient model that reduces the overhead of managing large virtualized environments. It provides practical insights for developers and communities working with constrained resources, offering solutions that are easy to implement, effective, and tailored to specific use cases.

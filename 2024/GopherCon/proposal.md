@@ -17,7 +17,7 @@ Learn how to implement GIF resizing with pure Go step by step and the cautionary
 
 ## Target Audience
 
- Advanced
+Advanced
 
 ## Outline
 

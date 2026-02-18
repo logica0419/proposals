@@ -101,42 +101,43 @@ all
    - フィルタリング関数が呼び出されるたびにヒープ上にスライスを1つ作成
      - このヒープに置かれた変数がボトルネックになっていた
 
-    ```go
-    type targetList []any
+   ```go
+   type targetList []any
 
-    func (list targetList) Filter(match func(any) bool) targetList {
-      filtered := make(targetList, 0, len(list)) // ここがボトルネック
-      for _, e := range list {
-        if match(e) {
-          filtered = append(filtered, e)
-        }
-      }
-      return filtered
-    }
-    ```
+   func (list targetList) Filter(match func(any) bool) targetList {
+     filtered := make(targetList, 0, len(list)) // ここがボトルネック
+     for _, e := range list {
+       if match(e) {
+         filtered = append(filtered, e)
+       }
+     }
+     return filtered
+   }
+   ```
 
    - 既存のスライスを利用することで、割り当てを無くす
 
-    ```go
-    type targetList []any
+   ```go
+   type targetList []any
 
-    func (list targetList) Filter(match func(any) bool) targetList {
-      n := 0
-      for _, e := range list {
-        if match(e) {
-          list[n] = e
-          n++
-        }
-      }
-      list = list[:n]
-      return list
-    }
-    ```
+   func (list targetList) Filter(match func(any) bool) targetList {
+     n := 0
+     for _, e := range list {
+       if match(e) {
+         list[n] = e
+         n++
+       }
+     }
+     list = list[:n]
+     return list
+   }
+   ```
 
    - メモリ使用量99%削減
      - たった1つのアロケーションがパフォーマンスに大きく影響することを示している
    - CPU使用率57%削減
      - アロケーションとGCコストの削減の合計
+
 8. メモリ管理と最近の新機能のつながり (3分)
    - 超大雑把に紹介。こんな分野と繋がってるんだ！という興味を持ってほしい
    - arena (1.20)
