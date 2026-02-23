@@ -18,6 +18,7 @@ All Attendees
 ## Outline
 
 1. Introduction (3min)
+   - Memory management (programming language): strategy to manage variable data in memory
    - Memory management is important for performance
      - Example case: one memory allocation change -> 57% reduction in CPU usage and 99% lower memory consumption
    - Sessions about memory management are difficult
@@ -26,42 +27,53 @@ All Attendees
    - To learn advanced Go memory concepts, we need to understand the basics of a broad range of functionalities
      - We can acquire this only by grasping the "what" and "why" of each functionality
      - Let's focus on the "what" and "why", not the "how": the most efficient path from 0 to hero
+   - Pre-requirement: what go provides
+     - 2-phases: compiler and runtime
 2. What memory is: Ancient memory management (1min)
    - Memory = temporary data storage for the process
+     - App can use them as KV store
    - Direct data insertion to memory (data management of assembly)
 3. Era of variables: the stack and the heap (4min)
    - (Pain) Programmers need to know all the addresses
    - High-level programming language arose
-     - Variable = abstraction of data
+     - Variable: abstraction of data
      - Programmers don't need to know the address, but language needs to manage them
    - Invention of the stack
      - The stack was perfect to represent the nested structure of function calls & variable scope on memory space
-   - Illustrated explanation of the stack
-     - (Example) Go variable declaration and function call
+     - Illustrated explanation of the stack
    - Partial use of direct insertion: the heap and the pointer
      - For big / unknown-sized data
      - For data which is used across the functions
-     - (Example) malloc & free function in C
+     - Illustrated explanation of the heap and the pointer
+   - Pointers deep dive: illustrated explanation of pointer args vs value args
 4. Automatic heap management: garbage collection (2min)
+   - (Example) malloc & free function in C
    - (Pain) Programmers need to delete data in the heap when they are no longer in use
      - Risk of memory leak & OOM kill
    - Garbage collection (GC)
-     - Detection of unused data in the heap
-     - Deletion of them
+     - Mark: detection of unused data in the heap
+     - Sweep: Deletion of them
+     - Illustrated explanation of GC
+   - Optimization of GC in Go
+     - Concurrent GC, GC triggers, Green Tea
+     - Pursues simple logic
 5. Heap escaping in Go (5min)
    - (Pain) Placing many data in the heap = high GC cost
-     - (Example) Putting all struct & array in heap -> over half of the variables are GC target
+     - (Example) Putting all non-primitives in heap -> over half of the variables are GC target
    - Heap escaping
      - Put as much data in the stack as possible
      - Put necessary data in a heap, types don't matter
-   - Heap escape analysis
-     - Heap escaping is determined by the compiler, not the runtime
-     - Determined in the binary build phase
-     - A build option to show which variable escapes
+   - Heap escape analysis & membench
+     - Heap escaping is mostly determined by the compiler, runtime also has some influence
+     - A build option to show variable analysis log
+     - We can see actual allocation result with membench
+   - The structure of heap
+     - Objects with the same size are grouped in span
+     - Spans are grouped in bigger groups...
    - Zero-allocation libraries
      - Package that no data escapes to the heap in its functions
      - Efficient, basically increases performance
-     - Implementation is relatively complex, so difficult to read internal code
+     - Sometimes it slows down performance, measure the impact before using
 6. Flexible stack with stack copying (4min)
    - (Pain) The stack sometimes has a limit = stack overflow happens
    - Preparing a huge stack may be good…
@@ -69,6 +81,10 @@ All Attendees
    - Flexible-sized stack = efficient memory usage
      - Segmented stacks (old implementation)
      - Stack copying (current implementation)
+   - Illustrated explanation of stack copying
+   - Does Go have stack overflow?
+     - Yes, but it's rare
+     - Stacks are flexible, but they have a limit
 7. Explanation of the example case in the introduction (3min)
    - cf. <https://developers.cyberagent.co.jp/blog/archives/54653/> (written in Japanese)
    - Filtering function makes one slice in the heap every time it is called
@@ -121,3 +137,8 @@ All Attendees
    - Memory optimizations with pprof: "Memory Management in Go: The good, the bad and the ugly" at GopherCon UK 2023
    - (Advanced) Allocation of heap/stack (how Go allocation works with OS): "Understanding Go's Memory Allocator" at GopherCon UK 2018
    - Memory design over concurrency (memory model): "The Go Memory Model" at GoSF Meetup
+
+## Speaker Biography
+
+Takuto is a graduate student in computer science at Chiba Institute of Technology in Japan, pursuing a career as a cloud platform developer. His expertise includes Go, Kubernetes, and cloud-native infrastructure.  
+He organizes Gophers EX, a project that supports the global expansion of the Japanese Go community. With his experience as a speaker at an international conference, he shares practical approaches for challenging and participating in conferences overseas.
