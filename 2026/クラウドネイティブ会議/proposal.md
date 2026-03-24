@@ -2,11 +2,11 @@
 
 ## Status
 
-### ❔ In Evaluation
+### 😞 Declined
 
 ## 講演内容
 
-Kubernetes v1.33でGAとなったkube-proxyのnftablesモード。本当に従来のiptablesモードより高速なのか、きちんと説明できますか？  
+Kubernetes v1.33でGAとなったkube-proxyのnftablesモード。本当に従来のiptablesモードより高速なのか、きちんと説明できますか？
 
 現在、Serviceの実装にはkube-proxyのiptablesモード・nftablesモード・eBPFによるkube-proxy置き換えなど複数の方式が存在します。  
 しかし、それぞれの特性やkube-proxyがServiceの疎通をどのように実現しているかは十分に理解されておらず、デフォルト設定が使われているケースも少なくありません。  
