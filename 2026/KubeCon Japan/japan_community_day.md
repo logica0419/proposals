@@ -6,16 +6,19 @@
 
 ## Description
 
-KubernetesのネットワークにeBPFを持ち込んだ代表的なプロジェクトであるCilium。広く利用されている一方、実際にどの部分でeBPFが活用され、他のCNIと何が異なるのかを理解する機会はほとんどありません。
+[This talk will be delivered in English]
 
-このセッションでは、以下のトピックについて、Ciliumの具体的なeBPFコードを交えながら解説します。
+Cilium has become one of the most widely adopted CNI implementations in Kubernetes.  
+Yet many engineers use Cilium without understanding how it differs from other CNIs, how eBPF is used inside, or what new capabilities it enables.
 
-- K8sのCNIが実現・実装すべき機能
-- Cilium以外のCNI (Flannel・Calico) の実装アプローチ
-- Ciliumの実装方法とeBPFの活用箇所
-- eBPFだからこその効率化 (netkitやkube-proxy置き換えなど)
+In this session, we will explore the following topics using real eBPF code from Cilium:
 
-Ciliumの内部実装を読み解きながら、他CNIとの違いを比較し、eBPFの導入によって何が可能になったのかを学びましょう。
+- Core responsibilities of a Kubernetes CNI
+- How other CNIs, such as Flannel and Calico, implement those responsibilities
+- How Cilium implements those responsibilities with eBPF
+- Features and optimizations enabled by eBPF, including kube-proxy replacement and netkit
+
+Through a deep dive into Cilium's internals and comparisons with other CNIs, we'll explore what eBPF made possible in Kubernetes networking.
 
 ## Session format
 
