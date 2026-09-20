@@ -1,0 +1,15 @@
+{
+  "name": "proposals",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "textlint",
+    "format": "oxfmt --write"
+  },
+  "devDependencies": {
+    "@textlint-ja/textlint-rule-preset-ai-writing": "1.7.0",
+    "oxfmt": "0.68.0",
+    "textlint": "15.8.0",
+    "textlint-rule-preset-ai-words-ja": "1.2.1"
+  }
+}
