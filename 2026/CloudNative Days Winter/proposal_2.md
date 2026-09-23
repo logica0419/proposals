@@ -1,28 +1,20 @@
-# Nested Containersとコンテナランタイム ～いかにしてyoukiはruncと異なる解決法を選んだか
+# Nested Containersとコンテナランタイム ～なぜyoukiはruncと異なる設計を選んだか
 
 ## Status
 
 ### ❔ In Evaluation
 
-## 講演内容 - Abstract
+## 講演内容
 
-- ベースとなるIssue・Pull Request
-  - <https://github.com/youki-dev/youki/issues/3342>
-  - <https://github.com/youki-dev/youki/pull/3347> (ほぼすべてのコンテクストはここにある)
-  - <https://github.com/youki-dev/youki/pull/3563>
-  - <https://github.com/youki-dev/youki/pull/3564>
-- 伝えたい抽象的なメッセージ
-  - 後発プロダクトが先行プロダクトの設計をそのまま踏襲する必要はない。
-    - デファクトスタンダードは必ずしも「すべて正解」なわけではない
-  - 後発プロダクトが、先行プロダクトが叶えられなかった「きれいな仕様・設計」を目指すことで、それは差別化・エコシステムの充実につながる
-    - これはまさに、エコシステムの選択肢が広がっていく「Scaling Together」
-- 今回取り上げる具体的な技術話
-  - Nested Containers + cgroup v2の組み合わせへの、コンテナランタイム側の対処
-  - runcが採用した「リトライ型アプローチ」と、youkiが採用した「事前推定 (proactive inference) 型アプローチ」の違い
-    - youkiの方が、起こりえる危険なパターンを排除できる かつ よりシンプルな設計になっている
-  - 実装する中で新しいやり方を発見し提案するだけでなく、KubeCon Japanの場でruncのメンテナーとyoukiのメンテナーを交えて会合を行う、コミュニティとしての努力
-    - これはまさにコミュニティとコーディング双方のコントリビューションが繋がった場所
-    - Scaling Togetherなのでは？
+デファクトスタンダードの実装がいつも最善の設計とは限りません。  
+時に後発のOSSが異なる設計を選び、品質と信頼性を高めることで、採用を検討できるOSSの選択肢を増やすことも、エコシステム全体を『共にスケール』させる一歩です。
+
+Dockerのrunc代替としてyoukiを継続利用していたところ、KinDなどのNested Containersで`exec`が`Device or resource busy`エラーで失敗しました。  
+未実装だった対処を自ら実装する中で、runcが失敗後にinit processのcgroupへフォールバックする実装で対処していた一方、youkiでは所属すべきcgroupを先に推定する実装を選びました。  
+この設計はruncとの互換性を一部失いますが、維持する互換性と許容する差分を、実装・テストと双方のメンテナーとの議論で決めました。
+
+本セッションでは、runcを踏襲した初期案から、実装と議論を経て独自案へ至った経緯と設計判断をお伝えします。  
+どの互換性を維持し、何を捨てたのかを知ることで、新たな選択肢を生む設計視点を持ち帰っていただければ幸いです。
 
 ## 主なカテゴリ
 
@@ -34,13 +26,14 @@ Runtime
 
 ## 想定受講者
 
+- architect - システム設計
 - developer - システム開発
-- app-developer - アプリケーション開発
-- その他
+- operator/sys-admin - 運用管理/システム管理
 
 ## 実行フェーズ
 
-- Other
+- Dev/QA（開発環境）
+- PoC（検証）
 
 ## 必要とする講演時間 - Session time you need
 
