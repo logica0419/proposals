@@ -26,12 +26,12 @@ Runtime
 ## 想定受講者
 
 - developer - システム開発
-- app-developer - アプリケーション開発
-- その他
+- operator/sys-admin - 運用管理/システム管理
 
 ## 実行フェーズ
 
-- Other
+- Dev/QA（開発環境）
+- PoC（検証）
 
 ## 必要とする講演時間 - Session time you need
 
