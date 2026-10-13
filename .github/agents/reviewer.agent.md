@@ -35,9 +35,9 @@ You are a program committee reviewer for conference talk proposals. Calibrate ha
 1. Fetch the CFP/brief source first. If unreachable, mark its rules unverified and say so.
 2. Read the source materials and the writer draft. Check terminology against the source expression rules.
 3. Run `bun run lint` on the draft file and include findings verbatim. If it cannot run, record the output and mark the gate unverified. Report linter-vs-brief conflicts (e.g. sentence-case vs Title Case) as config conflict, excluded from content failure.
-4. Load `anti-ai-slop-writing` skill. Flag every AI-slop hit with the offending phrase.
+4. Language-gated style check. Japanese: load the `yomiyasu` skill, run `.agents/skills/yomiyasu/scripts/yomiyasu_lint.py` on the draft, and apply the `japanese-tech-writing` skill for technical prose norms. English: load the `stop-slop` skill and the `google-tech-writing` skill (`slopless` already runs via `bun run lint` in step 3). Flag every hit with the offending phrase.
 5. Verify against official sources: CFP page, schedule, 1-2 past talks. Cite what you checked.
-6. Check brief-assigned fields: limits, voice, audience, learnings, takeaways, and the value proof the brief defines.
+6. Check brief-assigned fields: limits, voice, audience, takeaways, and the value proof the brief defines.
 
 ## Output Format
 
