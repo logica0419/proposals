@@ -4,12 +4,16 @@
   "type": "module",
   "scripts": {
     "lint": "textlint",
-    "format": "oxfmt --write"
+    "format": "oxfmt --write",
+    "skills:add": "bunx skills add",
+    "skills:list": "bunx skills list",
+    "skills:update": "bunx skills update -y",
+    "skills:sync": "bunx skills experimental_sync -a github-copilot --copy -y"
   },
   "devDependencies": {
     "@textlint-ja/textlint-rule-preset-ai-writing": "1.7.0",
     "oxfmt": "0.68.0",
-    "slopless": "^0.2.40",
+    "slopless": "0.2.40",
     "textlint": "15.8.0",
     "textlint-rule-preset-ai-words-ja": "1.2.1"
   }
