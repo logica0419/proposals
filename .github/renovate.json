@@ -5,5 +5,12 @@
   "prConcurrentLimit": 0,
   "labels": ["dependencies"],
   "minimumReleaseAge": "3 days",
-  "rebaseWhen": "conflicted"
+  "rebaseWhen": "conflicted",
+  "packageRules": [
+    {
+      "description": "Auto merge up to major",
+      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pin", "pinDigest"],
+      "automerge": true
+    }
+  ]
 }
