@@ -1,7 +1,7 @@
 ---
 description: "Conference brief researcher. Use when adding a new conference: research its CFP and produce a references brief for proposal agents."
 name: "Brief Researcher"
-tools: [read, search, web, todo]
+tools: [read, edit, search, web, todo]
 agents: []
 user-invocable: false
 ---

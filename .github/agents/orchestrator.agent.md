@@ -23,11 +23,11 @@ Run the full flow: draft with `Writer`, gate with `Reviewer`, fact-check with `F
 
 ### Phase A: first draft
 
-A1. If no conference brief exists yet (e.g. `references/<conf>.md` missing), invoke `Brief Researcher` first to create it, then proceed.
+A1. If no conference brief exists yet (e.g. `references/<conf>.md` missing), invoke `Brief Researcher` first to create it, then verify the file exists before proceeding.
 
 A2. Read the conference brief and source materials for context.
 
-A3. Invoke `Writer` with the brief path, source paths, and target file. The writer verifies facts itself and reports open questions.
+A3. Invoke `Writer` with the brief path, source paths, and target file. The writer writes the draft to the target file, verifies facts itself and reports open questions.
 
 A4. Send every writer open question to `Fact Checker`. It resolves what public sources can answer and returns fix directions plus residual human questions.
 
