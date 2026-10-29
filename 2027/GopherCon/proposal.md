@@ -1,4 +1,4 @@
-# The Double-Edged Sword of Goroutines: Why runc Needs cgo
+# The Double-Edged Sword of Goroutines: Why runc Uses cgo
 
 ## Status
 
